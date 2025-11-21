@@ -1,4 +1,4 @@
-import { Button } from "../ui/Button.tsx";
+import { Button } from "../ui/button.tsx";
 
 export default function AuthToggle({ mode, setMode }) {
   return (
