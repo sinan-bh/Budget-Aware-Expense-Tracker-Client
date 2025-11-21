@@ -57,7 +57,7 @@ function App() {
                 </SidebarLayout>
               )}
               {isMobile && (
-                <div className="flex-1">
+                <div className="flex-1 pb-16">
                   <NavbarLayout /> {/* Still show Navbar on mobile */}
                   <Routes>
                     <Route
