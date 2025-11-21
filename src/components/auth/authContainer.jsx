@@ -4,18 +4,21 @@ import AuthTitle from "./authTitle.jsx";
 import AuthForm from "./authForm.jsx";
 import { login, signup } from "../../services/auth/authServices.js";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie"
 
 export default function AuthContainer() {
   const navigate = useNavigate();
   const [mode, setMode] = useState("login");
 
   const handleSubmitLogin = async (values, resetForm) => {
-    const response = await login(values);
-    if (response?.status === 200) {
-      resetForm();
-      navigate("/dashboard");
-    }
-  };
+  const response = await login(values);
+
+  if (response?.status === 200) {
+    Cookies.set("isUser", JSON.stringify(true)); 
+    resetForm();
+    navigate("/dashboard");
+  }
+};
 
   const handleSubmitSignup = async (values, resetForm) => {
     // try {

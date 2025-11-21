@@ -16,10 +16,18 @@ const SidebarLayout = ({ children }) => {
   const { openModal } = useAddExpenseModalStore();
 
   useEffect(() => {
-    navigate("/dashboard");
+    const isUser = Cookies.get("isUser");
+    console.log(isUser);
+    if (isUser) {
+      navigate("/dashboard");
+      return
+    } 
+      navigate("/auth");
+    
   }, []);
 
   const handlelogout = async () => {
+    Cookies.remove("isUser");
     navigate("/auth");
   };
 
