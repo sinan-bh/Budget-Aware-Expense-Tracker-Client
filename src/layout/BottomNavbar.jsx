@@ -1,12 +1,20 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import { LayoutDashboard, PieChart, Settings, PlusCircle } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { LayoutDashboard, PieChart, Settings, PlusCircle, LogOut } from "lucide-react";
 import useAddExpenseModalStore from "../hooks/store/addExpenseModalStore";
+import Cookies from "js-cookie";
 
 const BottomNavbar = () => {
   const { pathname } = useLocation();
   const { openModal } = useAddExpenseModalStore();
+  const navigate = useNavigate();
 
+  const handlelogout = async () => {
+      Cookies.remove("isUser");
+      navigate("/auth");
+    };
+
+  // eslint-disable-next-line no-unused-vars
   const navItem = (to, label, Icon) => (
     <Link
       to={to}
@@ -32,6 +40,13 @@ const BottomNavbar = () => {
         </button>
         {navItem("/reports", "Reports", PieChart)}
         {navItem("/settings", "Settings", Settings)}
+        <button
+            onClick={handlelogout}
+            className={`flex flex-col items-center justify-center p-2 text-xs font-medium text-gray-500 hover:text-blue-600`}
+          >
+            <LogOut size={18} />
+            Logout
+          </button>
       </div>
     </nav>
   );
