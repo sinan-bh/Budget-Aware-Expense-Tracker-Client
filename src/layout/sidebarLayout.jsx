@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
 import {
@@ -14,6 +14,10 @@ const SidebarLayout = ({ children }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { openModal } = useAddExpenseModalStore();
+
+  useEffect(() => {
+    navigate("/dashboard");
+  }, []);
 
   const handlelogout = async () => {
     navigate("/auth");
