@@ -1,8 +1,8 @@
 import { useState } from "react";
-import AuthToggle from "./authToggle";
-import AuthTitle from "./authTitle";
-import AuthForm from "./authForm";
-import { login, signup } from "../../services/auth/authServices";
+import AuthToggle from "./authToggle.jsx";
+import AuthTitle from "./authTitle.jsx";
+import AuthForm from "./authForm.jsx";
+import { login, signup } from "../../services/auth/authServices.js";
 import { useNavigate } from "react-router-dom";
 
 export default function AuthContainer() {

@@ -3,7 +3,7 @@ import { Formik, Form } from "formik";
 import InputEmail from "./inputEmail";
 import InputPassword from "./inputPassword";
 import { validationSchema } from "../../lib/validation";
-import { Button } from "../ui/Button";
+import { Button } from "../ui/button";
 
 export default function AuthForm({ mode, handleSubmit }) {
   const initialValues = {
